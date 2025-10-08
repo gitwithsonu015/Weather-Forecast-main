@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+  <div class="container">
+    <main class="main">
+
+     <section id="welcomeHero" class="welcome-hero hero-overlay">
+  <div class="hero-content stacked">
+    <div class="brand-row">
+      <span class="brand-logo" aria-hidden="true">
+        <i class="fa-solid fa-cloud-sun-rain"></i>
+      </span>
+      <h1 class="brand">SkyPulse</h1>
+    </div>
+    <p class="brand-sub">Shape the day with insight.</p>
+  </div>
+</section>
+
+      <header class="toprow">
+        <div class="top-left">
+          <i class="fa-solid fa-map-pin location-icon"></i>
+          <span id="locationLabel">Detecting location...</span>
+        </div>
+        <div class="top-center">
+          <div class="search-wrap">
+            <input id="searchInput" type="text" placeholder="Type here (city name)" />
+            <button id="searchBtn" class="icon-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </div>
+        </div>
+        <div class="top-right">
+          <div id="notif" class="notif" title="Notifications">
+            <i class="fa-regular fa-bell"></i>
+          </div>
+          <div class="unit-toggle">
+            <button id="celsiusBtn" class="unit-btn selected">°C</button>
+            <button id="fahrenheitBtn" class="unit-btn">°F</button>
+          </div>
+          <div class="theme-toggle">
+            <button id="lightBtn" class="theme-btn selected"><i class="fa-solid fa-sun"></i></button>
+            <button id="darkBtn" class="theme-btn"><i class="fa-solid fa-moon"></i></button>
+          </div>
+        </div>
+      </header>
+
+      <section class="hero hero-row">
+        <div class="today-card card elevated hero-card-lg pencil">
+          <div class="today-temp-xl" id="currentTemp">--°</div>
+          <div id="todayLabel" class="today-label">Today</div>
+          <div id="currentCond" class="today-cond">--</div>
+          <i id="todayIcon" class="fa-solid fa-sun icon-sun today-bg-icon"></i>
+          <div class="today-meta">
+            <div id="summaryText" class="muted">--</div>
+          </div>
+        </div>
+
+        <div class="forecast-swipe card as-tray pencil">
+          <div class="forecast-header">
+            <h4>5-Day Forecast</h4>
+          </div>
+          <div id="forecastCards" class="forecast-row"></div>
+        </div>
+      </section>
+
+      <section class="highlights-container">
+        <h3>Today's Highlights</h3>
+        <div class="highlights-grid" id="highlightsGrid"></div>
+      </section>
+
+      <section class="bottom-section-graph-layout">
+        <div class="hourly-graph-container card">
+          <div class="hourly-graph-header">
+            <h4>Upcoming Hours</h4>
+          </div>
+          <div class="hourly-chart-header" id="hourlyChartHeader"></div>
+          <div class="chart-wrapper">
+            <canvas id="tempChart"></canvas>
+          </div>
+          <div class="hourly-chart-percentages" id="hourlyChartPercentages"></div>
+        </div>
+
+        <aside class="favorite-cities-container card">
+          <div class="list-header">
+            <h4>Favorite Travel Destinations</h4>
+            <a id="viewAll" class="muted view-all-link">View All</a>
+          </div>
+          <div id="favoriteCities" class="cities-list"></div>
+        </aside>
+      </section>
+
+      <div class="popup-container" id="popupContainer">
+        <div class="popup-content">
+          <span class="close-button">&times;</span>
+          <div class="popup-cards-grid" id="popupCardsGrid"></div>
+        </div>
+      </div>
+
+      <!-- Minimal centered footer -->
+      <footer class="site-footer minimal">
+        <p><strong>© <span id="yearNow"></span> SkyPulse | Powered by OpenWeatherMap and Open‑Meteo</strong></p>
+      </footer>
+
+      <!-- Full-screen loading overlay -->
+      <div id="loadingOverlay" class="loading-overlay" aria-hidden="true">
+        <div class="loader-card">
+          <div class="spinner"></div>
+          <div class="loader-text">Loading...</div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
